@@ -11,12 +11,13 @@ Telegram: @lariosov
 def main(steam_link) -> str:
     id = sid.get_steam_id(url=steam_link)
     status = spr.start_watching(steam_id=id)
+
     while status[0] is False:
-        time.sleep(5)
-        return status[1], main(steam_link=steam_link)
+        time.sleep(60) # каждую минуту проверяем
+        return status, main(steam_link=steam_link)
     else:
-        return status[1], time.sleep(15), main(steam_link=steam_link)
+        return status
 
 
 if __name__ == "__main__":
-    print(main(steam_link='https://steamcommunity.com/id/geksomon'))
+    print(main(steam_link='https://steamcommunity.com/id/mrlarios'))
