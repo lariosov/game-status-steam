@@ -24,14 +24,17 @@ def start_watching(steam_id) -> int:
 
     for response in dirt_row.keys():
 
+        status = False
+
         name = dirt_row[response]["players"][0]["personaname"]
 
         try:
             game = dirt_row[response]["players"][0]["gameextrainfo"]
-            return f"Алярма!\n{name} зашёл в {game}"
+            status = True
+            return status, f"Алярма!\n{name} зашёл в {game}"
         except KeyError:
-            return f"Скучный {name} сейчас оффлайн."
+            return status, f"Скучный {name} сейчас оффлайн."
 
 
 if __name__ == "__main__":
-    print(start_watching(steam_id=76561198150707848))
+    print(start_watching(steam_id=76561198130034712))

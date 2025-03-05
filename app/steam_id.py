@@ -2,6 +2,11 @@ import requests
 import re
 from bs4 import BeautifulSoup
 
+"""
+DO NOT EDIT MANUALY
+Telegram: @lariosov
+"""
+
 
 st_accept = "text/html"
 st_useragent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_3_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15"
@@ -10,7 +15,7 @@ st_useragent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_3_1) AppleWebKit/605.1
 headers = {"Accept": st_accept, "User-Agent": st_useragent}
 
 
-def get_steam_id(url):
+def get_steam_id(url) -> str:
     r = requests.get(url=url,
                      headers=headers)
 
@@ -29,4 +34,4 @@ def get_steam_id(url):
 
 
 if __name__ == "__main__":
-    print(get_steam_id(url="https://steamcommunity.com/id/geksomon"))
+    print(get_steam_id(url="https://steamcommunity.com/id/mrlarios"))
